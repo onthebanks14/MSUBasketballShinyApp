@@ -11,7 +11,6 @@ library(stats)
 library(ggrepel)
 library(textir) 
 library(rstudioapi)
-library(plotly)
 
 ui <- fluidPage(
   
@@ -46,7 +45,7 @@ fluidRow(12,
 server <- function(input, output) {
   
   #get data
-  df1 <- read.csv("C:/Users/lukebunge14/Desktop/MSUBasketballShinyApp/finalMSUClusteringData.csv")
+  df1 <- read.csv("finalMSUClusteringData.csv")
   df1$ClusterType <- ifelse(df1$cluster==4,"Role Player - Wing",
                             ifelse(df1$cluster==2, "Productive Big Man",
                                    ifelse(df1$cluster==1,"Productive Wing",
