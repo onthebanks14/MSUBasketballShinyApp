@@ -9,10 +9,11 @@ RUN R -e 'install.packages("ggrepel")'
 RUN R -e 'install.packages("textir")'
 RUN R -e 'install.packages("plotly")'
 
-COPY app.R /app.R
-COPY finalMSUClusteringData.csv /finalMSUClusteringData.csv
+
+COPY app.R /srv/shiny-server/app.R
+COPY finalMSUClusteringData.csv /srv/shiny-server/finalMSUClusteringData.csv
 
 EXPOSE 3838
 
-CMD R -e 'shiny::runApp("app.R", port = 3838, host = "0.0.0.0")'
+CMD R -e 'shiny::runApp("/srv/shiny-server/app.R", port = 3838, host = "0.0.0.0")'
 
